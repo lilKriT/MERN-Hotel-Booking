@@ -2,11 +2,16 @@
   "name": "server",
   "packageManager": "yarn@3.5.1",
   "scripts": {
-    "build": "yarn tsc",
-    "run": "",
-    "dev": ""
+    "build": "rimraf dist && tsc",
+    "start": "yarn build && node dist/index",
+    "dev": "concurrently \"tsc --watch\" \"nodemon dist/index\""
   },
   "devDependencies": {
+    "nodemon": "^2.0.22",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "rimraf": "^5.0.1"
   }
 }
