@@ -916,6 +916,8 @@ __metadata:
 "MERN Hotel Booking@workspace:.":
   version: 0.0.0-use.local
   resolution: "MERN Hotel Booking@workspace:."
+  dependencies:
+    concurrently: ^8.0.1
   languageName: unknown
   linkType: soft
 
