@@ -12,3 +12,5 @@
 
 # Added by lilKriT
 .env
+node_modules/
+packages/server/dist/

@@ -1,7 +1,6 @@
 {
   "name": "MERN Hotel Booking",
   "packageManager": "yarn@3.5.1",
-  "scripts": {},
   "workspaces": [
     "packages/client",
     "packages/server"

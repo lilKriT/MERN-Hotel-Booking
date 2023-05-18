@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "packageManager": "yarn@3.5.1",
+  "scripts": {
+    "build": "yarn tsc",
+    "run": "",
+    "dev": ""
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
