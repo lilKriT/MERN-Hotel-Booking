@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h2>React works</h2>
+      <h2 className="text-sky-800">Tailwind works</h2>
     </>
   );
 }
