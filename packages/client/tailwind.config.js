@@ -10,6 +10,10 @@ export default {
         tablet: "576px",
         desktop: "1024px",
       },
+      colors: {
+        primary: "#009FFF",
+        secondary: "#ec2F4B",
+      },
     },
   },
   plugins: [],
