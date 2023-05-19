@@ -1,8 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <>
-      <h2 className="text-sky-800 font-lato">Tailwind works</h2>
-    </>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
