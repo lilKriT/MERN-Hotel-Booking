@@ -1,4 +1,4 @@
-import React from "react";
+import { DateRange } from "react-date-range";
 
 const Search = () => {
   return <div>Search</div>;
