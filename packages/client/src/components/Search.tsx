@@ -12,6 +12,7 @@ interface IDateRange {
 }
 
 const Search = () => {
+  const [datePickerOpened, setDatePickerOpened] = useState(false);
   const [date, setDate] = useState<IDateRange[]>([
     {
       startDate: new Date(),
@@ -24,17 +25,24 @@ const Search = () => {
     <form className="border border-sky-600 flex">
       <input type="text" className="w-1/3" />
       <div className="relative w-1/3">
-        <span>{`${format(
-          date[0].startDate || Date.now(),
-          "MM/dd/yy"
-        )} to ${format(date[0].endDate || Date.now(), "MM/dd/yy")}`}</span>
-        <DateRange
-          editableDateInputs={true}
-          onChange={(item) => setDate([item.selection])}
-          moveRangeOnFirstSelection={false}
-          ranges={date}
-          className="absolute top-10 left-0"
-        />
+        <span
+          onClick={() => setDatePickerOpened(!datePickerOpened)}
+          className="cursor-pointer"
+        >
+          {`${format(date[0].startDate || Date.now(), "MM/dd/yy")} to ${format(
+            date[0].endDate || Date.now(),
+            "MM/dd/yy"
+          )}`}
+        </span>
+        {datePickerOpened && (
+          <DateRange
+            editableDateInputs={true}
+            onChange={(item) => setDate([item.selection])}
+            moveRangeOnFirstSelection={false}
+            ranges={date}
+            className="absolute top-10 left-0"
+          />
+        )}
       </div>
       <input type="text" className="w-1/3" />
     </form>
