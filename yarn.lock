@@ -1353,6 +1353,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.57.1
     "@vitejs/plugin-react": ^4.0.0
     autoprefixer: ^10.4.14
+    date-fns: ^2.30.0
     eslint: ^8.38.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
@@ -1531,7 +1532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.16.1, date-fns@npm:^2.29.3":
+"date-fns@npm:^2.16.1, date-fns@npm:^2.29.3, date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
   dependencies:
