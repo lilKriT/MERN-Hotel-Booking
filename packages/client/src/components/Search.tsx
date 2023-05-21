@@ -11,7 +11,7 @@ interface IDateRange {
 }
 
 const Search = () => {
-  const [state, setState] = useState<IDateRange[]>([
+  const [date, setDate] = useState<IDateRange[]>([
     {
       startDate: new Date(),
       endDate: undefined,
@@ -20,15 +20,19 @@ const Search = () => {
   ]);
 
   return (
-    <form className="border border-sky-600">
+    <form className="border border-sky-600 flex">
       <input type="text" />
+      <div className="relative">
+        <input type="text" />
+        <DateRange
+          editableDateInputs={true}
+          onChange={(item) => setDate([item.selection])}
+          moveRangeOnFirstSelection={false}
+          ranges={date}
+          className="absolute top-10 left-0"
+        />
+      </div>
       <input type="text" />
-      <DateRange
-        editableDateInputs={true}
-        onChange={(item) => setState([item.selection])}
-        moveRangeOnFirstSelection={false}
-        ranges={state}
-      />
     </form>
   );
 };
