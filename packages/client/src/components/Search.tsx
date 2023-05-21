@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DateRange } from "react-date-range";
+import { format } from "date-fns";
 
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -21,9 +22,12 @@ const Search = () => {
 
   return (
     <form className="border border-sky-600 flex">
-      <input type="text" />
-      <div className="relative">
-        <input type="text" />
+      <input type="text" className="w-1/3" />
+      <div className="relative w-1/3">
+        <span>{`${format(
+          date[0].startDate || Date.now(),
+          "MM/dd/yy"
+        )} to ${format(date[0].endDate || Date.now(), "MM/dd/yy")}`}</span>
         <DateRange
           editableDateInputs={true}
           onChange={(item) => setDate([item.selection])}
@@ -32,7 +36,7 @@ const Search = () => {
           className="absolute top-10 left-0"
         />
       </div>
-      <input type="text" />
+      <input type="text" className="w-1/3" />
     </form>
   );
 };
