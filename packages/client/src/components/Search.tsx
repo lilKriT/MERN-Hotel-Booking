@@ -75,6 +75,7 @@ const Search = () => {
             <div>
               <button
                 type="button"
+                disabled={roomOptions.adults <= 1}
                 onClick={() => handleOptionChange("adults", -1)}
               >
                 -
@@ -93,6 +94,7 @@ const Search = () => {
             <div>
               <button
                 type="button"
+                disabled={roomOptions.children <= 0}
                 onClick={() => handleOptionChange("children", -1)}
               >
                 -
@@ -111,6 +113,7 @@ const Search = () => {
             <div>
               <button
                 type="button"
+                disabled={roomOptions.rooms <= 1}
                 onClick={() => handleOptionChange("rooms", -1)}
               >
                 -
