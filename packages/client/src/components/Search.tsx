@@ -91,17 +91,37 @@ const Search = () => {
           <div className="roomOptionItem flex justify-between">
             <span>Children: </span>
             <div>
-              <button type="button">-</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("children", -1)}
+              >
+                -
+              </button>
               <span>0</span>
-              <button type="button">+</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("children", 1)}
+              >
+                +
+              </button>
             </div>
           </div>
           <div className="roomOptionItem flex justify-between">
             <span>Rooms: </span>
             <div>
-              <button type="button">-</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("rooms", -1)}
+              >
+                -
+              </button>
               <span>1</span>
-              <button type="button">+</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("rooms", 1)}
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
