@@ -79,7 +79,7 @@ const Search = () => {
               >
                 -
               </button>
-              <span>1</span>
+              <span>{roomOptions.adults}</span>
               <button
                 type="button"
                 onClick={() => handleOptionChange("adults", 1)}
@@ -97,7 +97,7 @@ const Search = () => {
               >
                 -
               </button>
-              <span>0</span>
+              <span>{roomOptions.children}</span>
               <button
                 type="button"
                 onClick={() => handleOptionChange("children", 1)}
@@ -115,7 +115,7 @@ const Search = () => {
               >
                 -
               </button>
-              <span>1</span>
+              <span>{roomOptions.rooms}</span>
               <button
                 type="button"
                 onClick={() => handleOptionChange("rooms", 1)}
