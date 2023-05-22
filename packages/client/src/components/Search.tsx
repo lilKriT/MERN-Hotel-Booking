@@ -24,7 +24,7 @@ const Search = () => {
   ]);
 
   // Other options:
-  const [optionsOpened, setOptionsOpened] = useState(false);
+  const [roomOptionsOpened, setRoomOptionsOpened] = useState(false);
   const [roomOptions, setRoomOptions] = useState({
     adults: 1,
     children: 0,
@@ -67,13 +67,18 @@ const Search = () => {
         )}
       </div>
       <div className="relative w-1/3">
-        <span className="w-1/3">
+        <span
+          className="w-1/3"
+          onClick={() => setRoomOptionsOpened(!roomOptionsOpened)}
+        >
           {`${roomOptions.adults} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
         </span>
-        <RoomOptions
-          roomOptions={roomOptions}
-          handleOptionChange={handleOptionChange}
-        />
+        {roomOptionsOpened && (
+          <RoomOptions
+            roomOptions={roomOptions}
+            handleOptionChange={handleOptionChange}
+          />
+        )}
       </div>
     </form>
   );
