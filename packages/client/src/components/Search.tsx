@@ -12,6 +12,7 @@ interface IDateRange {
 }
 
 const Search = () => {
+  // Date picker:
   const [datePickerOpened, setDatePickerOpened] = useState(false);
   const [date, setDate] = useState<IDateRange[]>([
     {
@@ -20,6 +21,14 @@ const Search = () => {
       key: "selection",
     },
   ]);
+
+  // Other options:
+  const [optionsOpened, setOptionsOpened] = useState(false);
+  const [roomOptions, roomOptions] = useState({
+    adult: 1,
+    children: 0,
+    rooms: 1,
+  });
 
   return (
     <form className="border border-sky-600 flex">
