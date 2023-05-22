@@ -57,24 +57,30 @@ const Search = () => {
         <span className="w-1/3">
           {`${roomOptions.adult} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
         </span>
-        <div className="roomOptions">
-          <div className="roomOptionItem">
+        <div className="roomOptions absolute bg-gray-300 p-4 w-full">
+          <div className="roomOptionItem flex justify-between">
             <span>Adults: </span>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+            <div>
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
           </div>
-          <div className="roomOptionItem">
+          <div className="roomOptionItem flex justify-between">
             <span>Children: </span>
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
+            <div>
+              <button>-</button>
+              <span>0</span>
+              <button>+</button>
+            </div>
           </div>
-          <div className="roomOptionItem">
+          <div className="roomOptionItem flex justify-between">
             <span>Rooms: </span>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+            <div>
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
           </div>
         </div>
       </div>
