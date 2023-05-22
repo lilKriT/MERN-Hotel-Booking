@@ -25,10 +25,22 @@ const Search = () => {
   // Other options:
   const [optionsOpened, setOptionsOpened] = useState(false);
   const [roomOptions, setRoomOptions] = useState({
-    adult: 1,
+    adults: 1,
     children: 0,
     rooms: 1,
   });
+
+  type RoomOptionsKey = keyof typeof roomOptions;
+
+  const handleOptionChange = (option: string, change: number) => {
+    const castOption = option as RoomOptionsKey;
+    if (!castOption) return;
+
+    let newValue = roomOptions[castOption] + change;
+    newValue = newValue > 0 ? newValue : 0;
+
+    setRoomOptions({ ...roomOptions, [castOption]: newValue });
+  };
 
   return (
     <form className="border border-sky-600 flex">
@@ -55,31 +67,41 @@ const Search = () => {
       </div>
       <div className="relative w-1/3">
         <span className="w-1/3">
-          {`${roomOptions.adult} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
+          {`${roomOptions.adults} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
         </span>
         <div className="roomOptions absolute bg-gray-300 p-4 w-full">
           <div className="roomOptionItem flex justify-between">
             <span>Adults: </span>
             <div>
-              <button>-</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("adults", -1)}
+              >
+                -
+              </button>
               <span>1</span>
-              <button>+</button>
+              <button
+                type="button"
+                onClick={() => handleOptionChange("adults", 1)}
+              >
+                +
+              </button>
             </div>
           </div>
           <div className="roomOptionItem flex justify-between">
             <span>Children: </span>
             <div>
-              <button>-</button>
+              <button type="button">-</button>
               <span>0</span>
-              <button>+</button>
+              <button type="button">+</button>
             </div>
           </div>
           <div className="roomOptionItem flex justify-between">
             <span>Rooms: </span>
             <div>
-              <button>-</button>
+              <button type="button">-</button>
               <span>1</span>
-              <button>+</button>
+              <button type="button">+</button>
             </div>
           </div>
         </div>
