@@ -57,6 +57,26 @@ const Search = () => {
         <span className="w-1/3">
           {`${roomOptions.adult} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
         </span>
+        <div className="roomOptions">
+          <div className="roomOptionItem">
+            <span>Adults: </span>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+          <div className="roomOptionItem">
+            <span>Children: </span>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+          </div>
+          <div className="roomOptionItem">
+            <span>Rooms: </span>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+        </div>
       </div>
     </form>
   );
