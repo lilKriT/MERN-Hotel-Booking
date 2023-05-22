@@ -24,7 +24,7 @@ const Search = () => {
 
   // Other options:
   const [optionsOpened, setOptionsOpened] = useState(false);
-  const [roomOptions, roomOptions] = useState({
+  const [roomOptions, setRoomOptions] = useState({
     adult: 1,
     children: 0,
     rooms: 1,
@@ -53,7 +53,11 @@ const Search = () => {
           />
         )}
       </div>
-      <input type="text" className="w-1/3" />
+      <div className="relative w-1/3">
+        <span className="w-1/3">
+          {`${roomOptions.adult} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
+        </span>
+      </div>
     </form>
   );
 };
