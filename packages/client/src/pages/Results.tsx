@@ -1,7 +1,14 @@
-import React from "react";
+import Search from "../components/Search";
 
 const Results = () => {
-  return <div>Results</div>;
+  return (
+    <main className="flex justify-center bg-sky-300">
+      <div className="container">
+        <Search />
+        Results
+      </div>
+    </main>
+  );
 };
 
 export default Results;
