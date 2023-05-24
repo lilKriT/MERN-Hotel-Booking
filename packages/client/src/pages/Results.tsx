@@ -1,9 +1,13 @@
 import { useLocation } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
+import { useState } from "react";
 
 const Results = () => {
   const location = useLocation();
-  console.log(location.state);
+  const [destination, setDestination] = useState(location.state.destination);
+  const [dates, setDates] = useState(location.state.dates);
+  const [roomOptions, setRoomOptions] = useState(location.state.roomOptions);
+  // console.log(location.state);
 
   return (
     <main className="flex justify-center bg-sky-300">
