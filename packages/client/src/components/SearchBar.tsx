@@ -13,6 +13,12 @@ interface IDateRange {
   key?: string;
 }
 
+interface IRoomOptions {
+  adults: number;
+  children: number;
+  rooms: number;
+}
+
 const SearchBar = () => {
   const navigate = useNavigate();
 
@@ -31,7 +37,7 @@ const SearchBar = () => {
 
   // Other options:
   const [roomOptionsOpened, setRoomOptionsOpened] = useState(false);
-  const [roomOptions, setRoomOptions] = useState({
+  const [roomOptions, setRoomOptions] = useState<IRoomOptions>({
     adults: 1,
     children: 0,
     rooms: 1,
@@ -52,7 +58,7 @@ const SearchBar = () => {
 
   // Searching
   const handleSearch = () => {
-    navigate("/results", { state: { destination, date: dates, roomOptions } });
+    navigate("/results", { state: { destination, dates, roomOptions } });
   };
 
   return (
