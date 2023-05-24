@@ -31,6 +31,7 @@ const Search = () => {
     rooms: 1,
   });
 
+  // Handling option changes
   type RoomOptionsKey = keyof typeof roomOptions;
 
   const handleOptionChange = (option: string, change: number) => {
@@ -44,8 +45,14 @@ const Search = () => {
   };
 
   return (
+    // Form begins
     <form className="border border-sky-600 flex">
-      <input type="text" className="w-1/3" />
+      {/* Destination */}
+      <div className="relative w-1/3">
+        <input type="text" />
+      </div>
+
+      {/* Date field */}
       <div className="relative w-1/3">
         <span
           onClick={() => setDatePickerOpened(!datePickerOpened)}
@@ -56,23 +63,29 @@ const Search = () => {
             "MM/dd/yy"
           )}`}
         </span>
+        {/* Date Picker */}
         {datePickerOpened && (
           <DateRange
             editableDateInputs={true}
             onChange={(item) => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={date}
+            minDate={new Date()}
             className="absolute top-10 left-0"
           />
         )}
       </div>
+
+      {/* Room options */}
       <div className="relative w-1/3">
         <span
-          className="w-1/3"
+          className="w-1/3 cursor-pointer"
           onClick={() => setRoomOptionsOpened(!roomOptionsOpened)}
         >
           {`${roomOptions.adults} adults - ${roomOptions.children} children - ${roomOptions.rooms} rooms`}
         </span>
+
+        {/* Room options picker */}
         {roomOptionsOpened && (
           <RoomOptions
             roomOptions={roomOptions}
