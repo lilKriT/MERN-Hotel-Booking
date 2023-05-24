@@ -13,6 +13,9 @@ interface IDateRange {
 }
 
 const Search = () => {
+  // Destination:
+  const [destination, setDestination] = useState("");
+
   // Date picker:
   const [datePickerOpened, setDatePickerOpened] = useState(false);
   const [date, setDate] = useState<IDateRange[]>([
@@ -49,7 +52,12 @@ const Search = () => {
     <form className="border border-sky-600 flex">
       {/* Destination */}
       <div className="relative w-1/3">
-        <input type="text" />
+        <input
+          type="text"
+          placeholder="Where go?"
+          value={destination}
+          onChange={(e) => setDestination(e.target.value)}
+        />
       </div>
 
       {/* Date field */}

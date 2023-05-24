@@ -15,9 +15,9 @@ export default Results;
 
 // TODO: list of results
 // TODO: sticky search params
+// TODO: add results item
 // TODO: navigate from home to list, passing state
 // TODO: add destination to search
 // TODO: useLocation in results to get state
-// TODO: add results item
 // TODO: create a single hotel page
 // TODO: maybe make a slider with lightbox?
