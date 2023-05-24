@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 import SearchBox from "../components/SearchBox";
 import { format } from "date-fns";
@@ -14,7 +13,7 @@ const Results = () => {
   return (
     <main className="flex justify-center bg-sky-300">
       <div className="container">
-        <SearchBox />
+        {/* <SearchBox /> */}
         Results Destination: {destination}
         start day: {`${format(dates[0].startDate, "MM/dd/yyyy")}`}
         {/* end day: {`${format(dates[0].endDate, "MM/dd/yyyy")}`} */}

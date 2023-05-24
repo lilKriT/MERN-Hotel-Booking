@@ -6,18 +6,8 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import RoomOptions from "./RoomOptions";
 import { useNavigate } from "react-router-dom";
-
-interface IDateRange {
-  startDate?: Date;
-  endDate?: Date;
-  key?: string;
-}
-
-interface IRoomOptions {
-  adults: number;
-  children: number;
-  rooms: number;
-}
+import IDateRange from "../interfaces/IDateRange";
+import IRoomOptions from "../interfaces/IRoomOptions";
 
 const SearchBar = () => {
   const navigate = useNavigate();
