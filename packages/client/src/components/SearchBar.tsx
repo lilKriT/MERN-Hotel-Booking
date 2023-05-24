@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import RoomOptions from "./RoomOptions";
+import { useNavigate } from "react-router-dom";
 
 interface IDateRange {
   startDate?: Date;
@@ -12,13 +13,15 @@ interface IDateRange {
   key?: string;
 }
 
-const Search = () => {
+const SearchBar = () => {
+  const navigate = useNavigate();
+
   // Destination:
   const [destination, setDestination] = useState("");
 
   // Date picker:
   const [datePickerOpened, setDatePickerOpened] = useState(false);
-  const [date, setDate] = useState<IDateRange[]>([
+  const [dates, setDates] = useState<IDateRange[]>([
     {
       startDate: new Date(),
       endDate: undefined,
@@ -47,6 +50,11 @@ const Search = () => {
     setRoomOptions({ ...roomOptions, [castOption]: newValue });
   };
 
+  // Searching
+  const handleSearch = () => {
+    navigate("/results", { state: { destination, date: dates, roomOptions } });
+  };
+
   return (
     // Form begins
     <form className="border border-sky-600 flex">
@@ -66,8 +74,8 @@ const Search = () => {
           onClick={() => setDatePickerOpened(!datePickerOpened)}
           className="cursor-pointer"
         >
-          {`${format(date[0].startDate || Date.now(), "MM/dd/yy")} to ${format(
-            date[0].endDate || Date.now(),
+          {`${format(dates[0].startDate || Date.now(), "MM/dd/yy")} to ${format(
+            dates[0].endDate || Date.now(),
             "MM/dd/yy"
           )}`}
         </span>
@@ -75,9 +83,9 @@ const Search = () => {
         {datePickerOpened && (
           <DateRange
             editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
+            onChange={(item) => setDates([item.selection])}
             moveRangeOnFirstSelection={false}
-            ranges={date}
+            ranges={dates}
             minDate={new Date()}
             className="absolute top-10 left-0"
           />
@@ -101,8 +109,11 @@ const Search = () => {
           />
         )}
       </div>
+      <button className="btn btn--primary" type="button" onClick={handleSearch}>
+        Find
+      </button>
     </form>
   );
 };
 
-export default Search;
+export default SearchBar;
