@@ -39,9 +39,3 @@ const Results = () => {
 };
 
 export default Results;
-
-// TODO: list of results
-// TODO: sticky search params
-// TODO: add results item
-// TODO: create a single hotel page
-// TODO: maybe make a slider with lightbox?
