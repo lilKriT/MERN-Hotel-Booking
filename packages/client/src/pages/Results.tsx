@@ -13,13 +13,13 @@ const Results = () => {
   return (
     <main className="flex justify-center bg-sky-300">
       <div className="container">
-        {/* <SearchBox /> */}
-        Results Destination: {destination}
-        start day: {`${format(dates[0].startDate, "MM/dd/yyyy")}`}
+        <SearchBox state={{ destination, dates, roomOptions }} />
+        {/* Results Destination: {destination} */}
+        {/* start day: {`${format(dates[0].startDate, "MM/dd/yyyy")}`} */}
         {/* end day: {`${format(dates[0].endDate, "MM/dd/yyyy")}`} */}
-        Adults: {roomOptions.adults}
+        {/* Adults: {roomOptions.adults}
         Children: {roomOptions.children}
-        Rooms: {roomOptions.rooms}
+        Rooms: {roomOptions.rooms} */}
       </div>
     </main>
   );
