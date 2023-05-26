@@ -6,9 +6,11 @@ import Hotel from "../models/Hotel";
 // @access Private
 const createHotel = async (req: Request, res: Response) => {
   const { name, city, description } = req.body;
-  console.log(`${name} ${city} ${description}`);
+  //   console.log(`${name} ${city} ${description}`);
 
-  res.status(200).json({ name, city, description });
+  const newHotel = await Hotel.create({ name, city, description });
+
+  res.status(200).json(newHotel);
 };
 
 export { createHotel };
