@@ -6,11 +6,32 @@ import Hotel from "../models/Hotel";
 // @access Private
 const createHotel = async (req: Request, res: Response) => {
   const { name, city, description } = req.body;
-  //   console.log(`${name} ${city} ${description}`);
 
-  const newHotel = await Hotel.create({ name, city, description });
+  const newHotel = await Hotel.create({
+    name,
+    city,
+    description,
+  });
 
   res.status(200).json(newHotel);
 };
 
-export { createHotel };
+// @desc Get Single Hotel
+// @route GET api/v1/hotels/:id
+// @access Public
+const getHotel = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const hotel = await Hotel.findById(id);
+
+  if (!hotel) {
+    res.status(400);
+    throw new Error(`Hotel with id: ${id} couldn't be found.`);
+  }
+
+  res.status(200).json(hotel);
+};
+
+export { getHotel, createHotel };
+
+// TODO: add all CRUD
