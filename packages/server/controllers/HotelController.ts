@@ -32,6 +32,20 @@ const getHotel = async (req: Request, res: Response) => {
   res.status(200).json(hotel);
 };
 
-export { getHotel, createHotel };
+// @desc Get All Hotels
+// @route GET api/v1/hotels/
+// @access Public
+const getAllHotels = async (req: Request, res: Response) => {
+  const hotels = await Hotel.find();
+
+  if (!hotels) {
+    res.status(400);
+    throw new Error(`No hotels found.`);
+  }
+
+  res.status(200).json(hotels);
+};
+
+export { getHotel, getAllHotels, createHotel };
 
 // TODO: add all CRUD

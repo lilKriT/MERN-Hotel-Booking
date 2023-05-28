@@ -1,10 +1,15 @@
 import { Router } from "express";
-import { createHotel, getHotel } from "../../../controllers/HotelController";
+import {
+  createHotel,
+  getAllHotels,
+  getHotel,
+} from "../../../controllers/HotelController";
 
 const hotelRoutes = Router();
 
-hotelRoutes.post("/", createHotel);
+hotelRoutes.get("/", getAllHotels);
 hotelRoutes.get("/:id", getHotel);
+hotelRoutes.post("/", createHotel);
 
 export default hotelRoutes;
 
