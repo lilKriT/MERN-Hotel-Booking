@@ -62,6 +62,20 @@ const updateHotel = async (req: Request, res: Response) => {
   res.status(200).json(updateHotel);
 };
 
-export { getHotel, getAllHotels, createHotel };
+const deleteHotel = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const hotel = await Hotel.findById(id);
+
+  if (!hotel) {
+    res.status(400);
+    throw new Error("Hotel not found");
+  }
+
+  await hotel.deleteOne();
+
+  res.status(200).json(id);
+};
+
+export { getHotel, getAllHotels, createHotel, updateHotel, deleteHotel };
 
 // TODO: add all CRUD
