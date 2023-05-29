@@ -9,8 +9,8 @@ import {
 
 const hotelRoutes = Router();
 
-hotelRoutes.get("/", getAllHotels);
 hotelRoutes.get("/:id", getHotel);
+hotelRoutes.get("/", getAllHotels);
 hotelRoutes.post("/", createHotel);
 hotelRoutes.put("/:id", updateHotel);
 hotelRoutes.delete("/:id", deleteHotel);
