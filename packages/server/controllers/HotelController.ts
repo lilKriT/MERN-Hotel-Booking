@@ -46,6 +46,22 @@ const getAllHotels = async (req: Request, res: Response) => {
   res.status(200).json(hotels);
 };
 
+const updateHotel = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const hotel = await Hotel.findById(id);
+
+  if (!hotel) {
+    res.status(400);
+    throw new Error("Hotel not found");
+  }
+
+  const updatedHotel = await Hotel.findByIdAndUpdate(id, req.body, {
+    new: true,
+  });
+
+  res.status(200).json(updateHotel);
+};
+
 export { getHotel, getAllHotels, createHotel };
 
 // TODO: add all CRUD
